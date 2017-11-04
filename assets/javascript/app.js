@@ -3,16 +3,16 @@
 
 $( document ).ready(function() {
         $('#news-button').on("click", function(){
-          console.log("News is working")
+        	console.log("News is working")
         });
         $('#movies-button').on("click", function(){
-          console.log("Movies is working")
+        	console.log("Movies is working")
         });
         $('#music-button').on("click", function(){
-          console.log("Music is working")
+        	console.log("Music is working")
         });
         $('#youtube-button').on("click", function(){
-          console.log("Youtube is working")
+        	console.log("Youtube is working")
         });
     });
 
@@ -41,6 +41,7 @@ $.ajax(settings).done(function(response) {
 
   for (var i = 0; i < result.length; i++) {
            if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en") {
+<<<<<<< HEAD
             console.log("hey we are in our if");
             var movieDiv = $("#movie");
             var title = result[i].original_title;
@@ -50,3 +51,14 @@ $.ajax(settings).done(function(response) {
   };
 
 })  
+=======
+           	console.log("hey we are in our if");
+           	var movieDiv = $("#movie");
+           	var title = result[i].original_title;
+           	console.log(title);
+           	movieDiv.append(title + "<hr>");
+		};
+	};
+
+})	
+>>>>>>> master
