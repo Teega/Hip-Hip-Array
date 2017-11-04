@@ -41,6 +41,17 @@ $.ajax(settings).done(function(response) {
 
   for (var i = 0; i < result.length; i++) {
            if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en") {
+<<<<<<< HEAD
+            console.log("hey we are in our if");
+            var movieDiv = $("#movie");
+            var title = result[i].original_title;
+            console.log(title);
+            movieDiv.append(title + "<hr>");
+    };
+  };
+
+})  
+=======
            	console.log("hey we are in our if");
            	var movieDiv = $("#movie");
            	var title = result[i].original_title;
@@ -50,3 +61,4 @@ $.ajax(settings).done(function(response) {
 	};
 
 })	
+>>>>>>> master
