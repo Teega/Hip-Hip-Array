@@ -37,7 +37,7 @@ var settings = {
 
 $.ajax(settings).done(function(response) {
   console.log(response);
- $("#movie").text(JSON.stringify(response));
+// $("#movie").text(JSON.stringify(response));
 
  var result = response.results;
 
