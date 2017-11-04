@@ -1,0 +1,27 @@
+#jumbo {
+  background: url('../images/roman_clock.png') no-repeat center center;
+  background-color: #696981;
+  color: white;
+  text-shadow: #000 2px 2px;
+  border-radius: 8px;
+}
+
+.buttons {
+  background-color: #696981;
+  color: white;
+  width: 150px;
+  height: 50px;
+  margin-left: 10px;
+  box-shadow: #696969 2px 2px;
+}
+
+.input-group-addon {
+  background-color: #696981;
+  color: white;
+  box-shadow: #696969 1px 1px;
+}
+
+#date {
+  display: flex;
+  align-items: normal;
+}
