@@ -24,7 +24,8 @@ console.log("this is a test");
 
 // var year = $("#year-addon");
 var year = 2009;
-var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=2&language=en-US&api_key=f8e63df97dfc2a7095345babf9d3fe54";
+var page = 10;
+var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=" + page + "&language=en-US&api_key=f8e63df97dfc2a7095345babf9d3fe54";
 
 var settings = {
   "async": true,
@@ -41,8 +42,9 @@ $.ajax(settings).done(function(response) {
 var result = response.results;
 
   for (var i = 0; i < result.length; i++) {
-           if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 15) {
+           if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 5 && result[i].vote_average >=6) {
            	var movieDiv = $("#moviesResults");
+            var imgDiv = $("#imgDiv");
            	var title = result[i].original_title;
               console.log(title);
             var plot = result[i].overview;
@@ -50,9 +52,16 @@ var result = response.results;
             var movieIMG = result[i].poster_path;
             var imgURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movieIMG;
               console.log(imgURL);
-            var image = $("<img>").attr("src", imgURL);
-            movieDiv.append(image);
-           	movieDiv.append("<h4>" + title + "</h4><p>" + plot + "</p><hr>");
+//            var image = $("<img>").attr("src", imgURL);
+
+            var table = document.getElementById("movieData");
+            var row = table.insertRow(0);
+
+              var posterCell = row.insertCell(0);
+              var descCell = row.insertCell(1);
+
+                posterCell.innerHTML = ("<img src=" + imgURL + ">");
+                descCell.innerHTML = ("<h4>" + title + "</h4><p>" + plot + "</p><hr>");
 
 		};
 	};
