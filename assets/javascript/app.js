@@ -110,3 +110,37 @@ $.ajax(settings).done(function (response) {
           };
   }
 })
+
+//news
+//nyt archive apikey: 1918eacf59e1438aa675c6786c3fcfd2
+
+var newsYear = 2015;
+var newsMonth = 7;
+
+var newsURL = "http://api.nytimes.com/svc/archive/v1/"+ newsYear +"/"+ newsMonth +".json?api-key=1918eacf59e1438aa675c6786c3fcfd2";
+
+$.ajax({
+  url: newsURL,
+  method: 'GET',
+}).done(function(result) {
+  console.log(result, "This is our news archive");
+
+var newsResult = result.response;
+//their results are nested, so this next line pulls the nest apart.  do we need var articles = news[0];  ??
+var news = newsResult.docs;
+console.log(news, "these are the articles");
+
+  for (var i = 0; i < news.length; i++) {
+  //include only US news articles from the News section, not Op-Ed or local or whatever, 
+          if (news[i].news_desk == "U.S." && news[i].type_of_material == "News") {
+            console.log("inside our News if");
+            var newsDiv = $("#newsDiv");
+            var headline = news[i].headline;
+            var summ = news[i].snippet;
+            var newsLink = news[i].web_url;
+            console.log(headline, summ, newsLink);
+            $("#newsDiv").innerHTML("<h3>" + headline + "</h3><h4>" + summ + "</h4><p>" + newsLink + "</p><hr>")
+          };
+  }
+
+})
