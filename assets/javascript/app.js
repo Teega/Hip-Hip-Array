@@ -97,7 +97,7 @@ $.ajax(settings).done(function (response) {
             var tvimgURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + tvIMG;
 //            var image = $("<img>").attr("src", imgURL);
 
-//Grab the table from the HTML and put our movie data in it!  
+//Grab the table from the HTML and put our tv data in it!  
             var table = document.getElementById("tvData");
             var row = table.insertRow(0);
 
