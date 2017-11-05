@@ -25,3 +25,12 @@
   display: flex;
   align-items: normal;
 }
+
+img{
+  border: 1px solid black;
+}
+
+/* This is in here just to delineate the area between the movies table and the tv shows table */
+#moviesResults{
+  border-bottom: 1px solid blue;
+}
