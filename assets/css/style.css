@@ -61,3 +61,40 @@ body {
   box-shadow: #000 0px 2px;
 }
 
+.panels:hover {
+  background-color: #b3b6c3;
+}
+
+footer {
+  position: fixed;
+  margin-bottom: 0;
+  bottom: 0;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  padding: 15px;
+  background-color: #505870;
+  color: white;
+  height: 50px;
+  width: 100%;
+  text-shadow: #000 0px 2px;
+}
+
+a:link {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.credits {
+  height: 45px;
+  width: auto;
+  float: right;
+  margin-bottom: auto;
+}
