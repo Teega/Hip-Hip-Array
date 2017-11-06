@@ -69,7 +69,7 @@ var result = response.results;
 //imdb apikey = f8e63df97dfc2a7095345babf9d3fe54
 //
 
-var tvYear = 1999;
+var tvYear = 2009;
 var page = 1;
 var tvURL = "https://api.themoviedb.org//3/discover/tv?primary_release_year=" + tvYear + "&language=en-US&api_key=f8e63df97dfc2a7095345babf9d3fe54";
 
@@ -109,4 +109,34 @@ $.ajax(settings).done(function (response) {
 
           };
   }
+})
+
+//news
+//nyt archive apikey: 1918eacf59e1438aa675c6786c3fcfd2
+
+var newsYear = 2015;
+var newsMonth = 7;
+
+var newsURL = "http://api.nytimes.com/svc/archive/v1/"+ newsYear +"/"+ newsMonth +".json?api-key=1918eacf59e1438aa675c6786c3fcfd2";
+
+$.ajax({
+  url: newsURL,
+  method: 'GET',
+}).done(function(result) {
+  console.log(result, "This is our news archive");
+
+var news = result.response.docs;
+
+  for (var i = 0; i < news.length; i++) {
+  //include only US news articles from the News section, not Op-Ed or local or whatever, 
+          if (news[i].news_desk == "National" && news[i].section_name == "U.S." && news[i].print_page == "1") {
+            var newsDiv = $("#newsDiv");
+            var headline = news[i].headline.main;
+            var summ = news[i].snippet;
+            var newsLink = news[i].web_url;
+            var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4><a href>" + newsLink + "</a><hr>");
+            $("#newsDiv").append(newsDisplay);
+          };
+  }
+
 })
