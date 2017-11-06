@@ -125,21 +125,17 @@ $.ajax({
 }).done(function(result) {
   console.log(result, "This is our news archive");
 
-var newsResult = result.response;
-//their results are nested, so this next line pulls the nest apart.  do we need var articles = news[0];  ??
-var news = newsResult.docs;
-console.log(news, "these are the articles");
+var news = result.response.docs;
 
   for (var i = 0; i < news.length; i++) {
   //include only US news articles from the News section, not Op-Ed or local or whatever, 
-          if (news[i].news_desk == "U.S." && news[i].type_of_material == "News") {
-            console.log("inside our News if");
+          if (news[i].news_desk == "National" && news[i].section_name == "U.S." && news[i].print_page == "1") {
             var newsDiv = $("#newsDiv");
-            var headline = news[i].headline;
+            var headline = news[i].headline.main;
             var summ = news[i].snippet;
             var newsLink = news[i].web_url;
-            console.log(headline, summ, newsLink);
-            $("#newsDiv").innerHTML("<h3>" + headline + "</h3><h4>" + summ + "</h4><p>" + newsLink + "</p><hr>")
+            var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4><a href>" + newsLink + "</a><hr>");
+            $("#newsDiv").append(newsDisplay);
           };
   }
 
