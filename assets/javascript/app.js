@@ -19,7 +19,7 @@ $( document ).ready(function() {
 
 //Remember that we can change the year/page with user input or onclick events, ie: $("#seemore").on("click", function(page++));
 // var year = $("#year-addon");
-var year = 2009;
+var year = 2010;
 var page = 3;
 var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=" + page + "&language=en-US&api_key=f8e63df97dfc2a7095345babf9d3fe54";
 
@@ -50,7 +50,7 @@ var result = response.results;
             var imgURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movieIMG;
 //            var image = $("<img>").attr("src", imgURL);
 
-//Grab the table from the HTML and put our movie data in it!  
+//Grab the table from the HTML and put our movie data in it!
             var table = document.getElementById("movieData");
             var row = table.insertRow(0);
 
@@ -97,7 +97,7 @@ $.ajax(settings).done(function (response) {
             var tvimgURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + tvIMG;
 //            var image = $("<img>").attr("src", imgURL);
 
-//Grab the table from the HTML and put our tv data in it!  
+//Grab the table from the HTML and put our tv data in it!
             var table = document.getElementById("tvData");
             var row = table.insertRow(0);
 
