@@ -61,49 +61,66 @@
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-            Collapsible Group 1</a>
+            Movies</a>
           </h4>
         </div>
-        <div id="collapse1" class="panel-collapse collapse in">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body"><div class ="col-sm-12" id ="moviesResults">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody id = "movieData">
+                  <tr></tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-            Collapsible Group 2</a>
+            TV Shows</a>
           </h4>
         </div>
         <div id="collapse2" class="panel-collapse collapse">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
+          <div class="panel-body">    <div class ="col-sm-12" id ="tvResults">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id = "tvData">
+                      <tr></tr>
+                    </tbody>
+                  </table>
+              </div>
+            </div>
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-            Collapsible Group 3</a>
+            News</a>
           </h4>
         </div>
         <div id="collapse3" class="panel-collapse collapse">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
+          <div class="panel-body" id= "newsDiv"></div>
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-            Collapsible Group 4</a>
+            Books</a>
           </h4>
         </div>
         <div id="collapse4" class="panel-collapse collapse">
@@ -116,41 +133,6 @@
     </div>
 
   </div>
-
-<div class = row>
-    <div class ="col-sm-12" id ="moviesResults">
-      <table class="table table-striped">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody id = "movieData">
-            <tr></tr>
-          </tbody>
-        </table>
-    </div>
-</div>
-
-
-<div class = row>
-    <div class ="col-sm-12" id ="tvResults">
-      <table class="table table-striped">
-          <thead class="thead-dark"><h1>TV Shows</h1>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody id = "tvData">
-            <tr></tr>
-          </tbody>
-        </table>
-    </div>
-</div>
-
-
 
   <script src="./assets/javascript/app.js"></script>
 </body>
