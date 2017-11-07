@@ -1,32 +1,100 @@
-#jumbo {
-  background: url('../images/roman_clock.png') no-repeat center center;
-  background-color: #696981;
-  color: white;
-  text-shadow: #000 2px 2px;
-  border-radius: 8px;
+body {
+  background-color: #989DAC;
 }
 
-.buttons {
-  background-color: #696981;
+#jumbo {
+  background: url('../images/roman_clock.png') no-repeat center center;
+  background-color: #505870;
   color: white;
-  width: 150px;
-  height: 50px;
-  margin-left: 10px;
-  box-shadow: #696969 2px 2px;
+  text-shadow: #000 0px 2px 25px;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  margin-top: 0;
+  top: 0;
+  width: 100%
+}
+
+.calendar {
+  position: relative;
+  display: block;
+  text-align: left;
+  color: white;
+  float: none;
+  font-family: 'Anton', sans-serif;
+  text-shadow: #000 0px 2px;
+}
+
+#buttons {
+  background-color: #505870;
+  color: white;
+  width: 100px;
+  height: 28px;
 }
 
 .input-group-addon {
-  background-color: #696981;
+  background-color: #505870;
   color: white;
-  box-shadow: #696969 1px 1px;
+}
+
+#datefield {
+  color: black;
 }
 
 #date {
-  display: flex;
-  align-items: normal;
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  text-shadow: #000 0px 2px;
+  font-family: 'Anton', sans-serif;
 }
 
-img{
-  border: 1px solid black;
+.panels {
+  height: 40px;
+  border-radius: 2px;
+  background-color: #505870;
+  color: white;
+  text-shadow: #000 0px 2px;
+  text-align: left;
+  padding: 10px;
+  font-family: 'Anton', sans-serif;
+  position: relative;
+  box-shadow: #000 0px 2px;
 }
 
+.panels:hover {
+  background-color: #b3b6c3;
+}
+
+footer {
+  position: fixed;
+  margin-bottom: 0;
+  bottom: 0;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  padding: 15px;
+  background-color: #505870;
+  color: white;
+  height: 50px;
+  width: 100%;
+  text-shadow: #000 0px 2px;
+}
+
+a:link {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.credits {
+  height: 45px;
+  width: auto;
+  float: right;
+  margin-bottom: auto;
+}

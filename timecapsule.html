@@ -3,136 +3,102 @@
 
 <head>
   <meta charset="utf-8">
-<link rel="shortcut icon" href="./assets/images/clock_calendar.png">
+  <link rel="shortcut icon" href="./assets/images/clock_calendar.png">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <title>Today's Special</title>
 </head>
 
 <body>
-  <div class="col-md-12">
-    <div class="jumbotron" id="jumbo" style="text-align: center;">
-      <h1>If I Could Turn Back Time</h1>
-    </div>
+  <div class="jumbotron" id="jumbo">
+    <h1>If I Could Turn Back Time</h1>
   </div>
-<!--Month/year input-->
-  <div class="container">
-              <div class="row">
-                  <div class="col-md-6">
-                      <form class="form">
-                          <div class="form-group">
-                              <div class="input-group">
-                                  <span class="input-group-addon" id="month-addon">Month: </span>
-                                  <select name="control-month" class="form-control" aria-describedby="month-addon">
-                                      <option>January</option>
-                                      <option>February</option>
-                                      <option>March</option>
-                                      <option>April</option>
-                                      <option>May</option>
-                                      <option>June</option>
-                                      <option>July</option>
-                                      <option>August</option>
-                                      <option>September</option>
-                                      <option>October</option>
-                                      <option>November</option>
-                                      <option>December</option>
-                                  </select>
-                                  <span class="input-group-addon" id="year-addon">Year: </span>
-                                  <select name="control-year" class="form-control" aria-describedby="year-addon">
-                                      <option selected="selected">2017</option>
-                                      <option>2016</option>
-                                      <option>2015</option>
-                                  </select>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          <br>
+
+  <!--Month/year input-->
+  <div class="col-md-6">
+    <div id="date">
+      <p>Enter A Date</p>
+    </div>
+
+    <form class="calendar">
+      <input type="date" id="datefield">
+      <input type="submit" id="buttons">
+    </form>
+    <br>
+    <br>
+  </div>
 
 
   <div class="col-md-12">
 
     <div class="panel-group" id="accordion">
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-            Movies</a>
-          </h4>
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+          <h4 class="panel-title">Movies</h4>
         </div>
         <div id="collapse1" class="panel-collapse collapse">
-          <div class="panel-body"><div class ="col-sm-12" id ="moviesResults">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody id = "movieData">
+          <div class="panel-body">
+            <div id="moviesResults">
+              <table class="table table-striped">
+                <tbody id="movieData">
                   <tr></tr>
                 </tbody>
               </table>
+            </div>
           </div>
         </div>
-        </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-            TV Shows</a>
-          </h4>
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+          <h4 class="panel-title">TV Shows</h4>
         </div>
         <div id="collapse2" class="panel-collapse collapse">
-          <div class="panel-body">    <div class ="col-sm-12" id ="tvResults">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody id = "tvData">
-                      <tr></tr>
-                    </tbody>
-                  </table>
-              </div>
+          <div class="panel-body">
+            <div id="tvResults">
+              <table class="table table-striped">
+                <tbody id="tvData">
+                  <tr></tr>
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-            News</a>
-          </h4>
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+          <h4 class="panel-title">News</h4>
         </div>
         <div id="collapse3" class="panel-collapse collapse">
-          <div class="panel-body" id= "newsDiv"></div>
+          <div class="panel-body">
+            <div id="newsDiv">
+            </div>
+          </div>
         </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-            Books</a>
-          </h4>
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+          <h4 class="panel-title">Books</h4>
         </div>
         <div id="collapse4" class="panel-collapse collapse">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
+          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
         </div>
       </div>
     </div>
 
   </div>
+
+  <footer>Hip Hip Array 2017
+    <div class="credits">
+      <a href="https://www.themoviedb.org" target="_blank"><img src="./assets/images/moviedb.png" alt="moviedb" style="width: auto; height:40px;"></a>
+
+    </div>
+  </footer>
+
+
 
   <script src="./assets/javascript/app.js"></script>
 </body>

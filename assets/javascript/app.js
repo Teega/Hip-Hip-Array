@@ -15,7 +15,6 @@ $( document ).ready(function() {
 
 //movies:
 //imdb apikey = f8e63df97dfc2a7095345babf9d3fe54
-// /3/discover/movie?primary_release_year=2010&sort_by=vote_average.desc
 
 //Remember that we can change the year/page with user input or onclick events, ie: $("#seemore").on("click", function(page++));
 // var year = $("#year-addon");
@@ -47,7 +46,6 @@ var result = response.results;
             var plot = result[i].overview;
             var movieIMG = result[i].poster_path;
             var imgURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movieIMG;
-//            var image = $("<img>").attr("src", imgURL);
 
 //Grab the table from the HTML and put our movie data in it!  
             var table = document.getElementById("movieData");
@@ -66,7 +64,6 @@ var result = response.results;
 
 //tv shows
 //imdb apikey = f8e63df97dfc2a7095345babf9d3fe54
-//
 
 var tvYear = 2010;
 var tvPage = 1;
@@ -80,7 +77,7 @@ var settings = {
   "headers": {},
   "data": "{}"
 }
-//&& tvResult[i].vote_average >=7 
+ 
 $.ajax(settings).done(function (response) {
   console.log(response, "These are TV Shows");
 
@@ -93,7 +90,6 @@ $.ajax(settings).done(function (response) {
             var date = tvResult[i].first_air_date;
             var tvIMG = tvResult[i].poster_path;
             var tvimgURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + tvIMG;
-//            var image = $("<img>").attr("src", imgURL);
 
 //Grab the table from the HTML and put our tv data in it!  
             var table = document.getElementById("tvData");
@@ -111,7 +107,6 @@ $.ajax(settings).done(function (response) {
 
 //news
 //nyt archive apikey: 1918eacf59e1438aa675c6786c3fcfd2
-
 var newsYear = 2010;
 var newsMonth = 7;
 
