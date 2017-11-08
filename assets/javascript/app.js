@@ -1,11 +1,17 @@
-console.log("this is a test");
 
-var jumboHeight = $('.jumbotron').outerHeight();
-function parallax(){
-    var scrolled = $(window).scrollTop();
-    $('.bg').css('height', (jumboHeight-scrolled) + 'px');
-}
 
-$(window).scroll(function(e){
-    parallax();
-});
+
+$( document ).ready(function() {
+        $('#news-button').on("click", function(){
+        	console.log("News is working")
+        });
+        $('#movies-button').on("click", function(){
+        	console.log("Movies is working")
+        });
+        $('#music-button').on("click", function(){
+        	console.log("Music is working")
+        });
+        $('#youtube-button').on("click", function(){
+        	console.log("Youtube is working")
+        });
+    });
