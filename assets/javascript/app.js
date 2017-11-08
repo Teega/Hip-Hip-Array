@@ -13,13 +13,17 @@ $( document ).ready(function() {
         });
     });
 
+//var year = $("#yearinput").val().trim();
+//var month = $("#monthinput").val().trim();
+//var page =
+
 //movies:
 var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
 
 //Remember that we can change the year/page with user input or onclick events, ie: $("#seemore").on("click", function(page++));
 // var year = $("#year-addon");
 
-var year = 2015;
+var year = 2010;
 var page = 1;
 var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=" + page + "&language=en-US&api_key=" + imdbKey;
 
@@ -126,15 +130,12 @@ var news = result.response.docs;
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
             var newsLink = news[i].web_url;
-            console.log(newsLink);
-            var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + "<hr>");
+            var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4><a href=" + newsLink + ">" + newsLink + "</a><hr>");
             $("#newsDiv").append(newsDisplay);
           };
   }
 
 })
-
-//<a href=>" + newsLink + "</a><hr>"
 
 var booksTemplate = ""
 
@@ -158,6 +159,8 @@ for (var i = 0; i < 4; i++) {
   var title = currentDetail.title;
   var description = currentDetail.description;
   var author = currentDetail.author;
+  var amURL= bookDetails[i].amazon_product_url;
+  console.log(amURL);
   booksTemplate += "<h3>" + title + "</h3><h4>" + description + "</h4><h4>" + author + "</h4>";
   // booksTemplate += `<h3>${title}</h3><h4>${description}</h4><h4>${author}</h4>`
 }
