@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="./assets/images/clock_calendar.png">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <title>Today's Special</title>
+</head>
+
+<body>
+  <div class="jumbotron" id="jumbo">
+    <h1>If I Could Turn Back Time</h1>
+  </div>
+
+  <!--Month/year input-->
+  <div class="col-md-6">
+    <div id="date">
+      <p>Enter A Date</p>
+    </div>
+
+    <form class="calendar">
+      <input type="date" id="datefield">
+      <input type="submit" id="buttons">
+    </form>
+    <br>
+    <br>
+  </div>
+
+
+  <div class="col-md-12">
+
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+          <h4 class="panel-title">Movies</h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div id="moviesResults">
+              <table class="table table-striped">
+                <tbody id="movieData">
+                  <tr></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+          <h4 class="panel-title">TV Shows</h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div id="tvResults">
+              <table class="table table-striped">
+                <tbody id="tvData">
+                  <tr></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+          <h4 class="panel-title">News</h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div id="newsDiv">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panels" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+          <h4 class="panel-title">Books</h4>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse">
+          <div class="panel-body" id="booksDiv"></div><br>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Hip Hip Array 2017
+    <div class="credits">
+      <a href="https://www.themoviedb.org" target="_blank"><img src="./assets/images/moviedb.png" alt="moviedb" style="width: auto; height:40px;"></a>
+
+    </div>
+  </footer>
+
+
+
+  <script src="./assets/javascript/app.js"></script>
+</body>
+
+</html>
