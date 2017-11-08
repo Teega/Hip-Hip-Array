@@ -109,7 +109,7 @@ var nytKey = "1918eacf59e1438aa675c6786c3fcfd2";
 var newsYear = 2010;
 var newsMonth = 7;
 
-var newsURL = "http://api.nytimes.com/svc/archive/v1/"+ newsYear +"/"+ newsMonth +".json?api-key=" + nytKey;
+var newsURL = "https://api.nytimes.com/svc/archive/v1/"+ newsYear +"/"+ newsMonth +".json?api-key=" + nytKey;
 
 $.ajax({
   url: newsURL,
@@ -126,13 +126,15 @@ var news = result.response.docs;
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
             var newsLink = news[i].web_url;
-            var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4><a href>" + newsLink + "</a><hr>");
+            console.log(newsLink);
+            var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + "<hr>");
             $("#newsDiv").append(newsDisplay);
           };
   }
 
 })
 
+//<a href=>" + newsLink + "</a><hr>"
 
 var booksTemplate = ""
 
@@ -147,7 +149,7 @@ $.ajax({
   url: url,
   method: 'GET',
 }).done(function(data) {
-  console.log(data);
+  console.log(data, "these are books");
 
 var bookDetails = data.results
 //
