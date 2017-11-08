@@ -134,7 +134,40 @@ var news = result.response.docs;
 })
 
 
-//music
-// var musicKey = "7c29dfd4c8caa6f25d6bab8905f54fc1";
-// var musicURL = ""
+var booksTemplate = ""
+
+// NYT Book API
+var url = "https://api.nytimes.com/svc/books/v3/lists//.json";
+url += '?' + $.param({
+  'api-key': "b64791b04000459ab16801c74f5de9cc",
+  'list-name': "hardcover-fiction",
+  'published-date': "2014-09-18"
+});
+$.ajax({
+  url: url,
+  method: 'GET',
+}).done(function(data) {
+  console.log(data);
+
+var bookDetails = data.results
+//
+for (var i = 0; i < 4; i++) {
+  var currentDetail = bookDetails[i].book_details[0];
+  var title = currentDetail.title;
+  var description = currentDetail.description;
+  var author = currentDetail.author;
+  booksTemplate += "<h3>" + title + "</h3><h4>" + description + "</h4><h4>" + author + "</h4>";
+  // booksTemplate += `<h3>${title}</h3><h4>${description}</h4><h4>${author}</h4>`
+}
+
+$("#booksDiv").append(booksTemplate);
+
+}).fail(function(err) {
+  throw err;
+
+
+
+
+
+});
 
