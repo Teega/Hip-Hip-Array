@@ -14,14 +14,14 @@ $( document ).ready(function() {
     });
 
 //movies:
-//imdb apikey = f8e63df97dfc2a7095345babf9d3fe54
+var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
 
 //Remember that we can change the year/page with user input or onclick events, ie: $("#seemore").on("click", function(page++));
 // var year = $("#year-addon");
 
 var year = 2015;
 var page = 1;
-var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=" + page + "&language=en-US&api_key=f8e63df97dfc2a7095345babf9d3fe54";
+var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=" + page + "&language=en-US&api_key=" + imdbKey;
 
 //This bit came from IMDB, don't mess with it, we need it to pull data correctly
 var settings = {
@@ -63,11 +63,11 @@ var result = response.results;
 })
 
 //tv shows
-//imdb apikey = f8e63df97dfc2a7095345babf9d3fe54
+//imdbKey = f8e63df97dfc2a7095345babf9d3fe54
 
 var tvYear = 2010;
 var tvPage = 1;
-var tvURL = "https://api.themoviedb.org/3/discover/tv?api_key=f8e63df97dfc2a7095345babf9d3fe54&language=en-US&sort_by=popularity.desc&first_air_date_year=" + tvYear + "&page=" + tvPage + "&timezone=America%2FNew_York&include_null_first_air_dates=false";
+var tvURL = "https://api.themoviedb.org/3/discover/tv?api_key=" + imdbKey + "&language=en-US&sort_by=popularity.desc&first_air_date_year=" + tvYear + "&page=" + tvPage + "&timezone=America%2FNew_York&include_null_first_air_dates=false";
 
 var settings = {
   "async": true,
@@ -105,11 +105,11 @@ $.ajax(settings).done(function (response) {
 })
 
 //news
-//nyt archive apikey: 1918eacf59e1438aa675c6786c3fcfd2
+var nytKey = "1918eacf59e1438aa675c6786c3fcfd2";
 var newsYear = 2010;
 var newsMonth = 7;
 
-var newsURL = "http://api.nytimes.com/svc/archive/v1/"+ newsYear +"/"+ newsMonth +".json?api-key=1918eacf59e1438aa675c6786c3fcfd2";
+var newsURL = "http://api.nytimes.com/svc/archive/v1/"+ newsYear +"/"+ newsMonth +".json?api-key=" + nytKey;
 
 $.ajax({
   url: newsURL,
@@ -132,3 +132,9 @@ var news = result.response.docs;
   }
 
 })
+
+
+//music
+// var musicKey = "7c29dfd4c8caa6f25d6bab8905f54fc1";
+// var musicURL = ""
+
