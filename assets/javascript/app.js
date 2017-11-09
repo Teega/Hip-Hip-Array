@@ -27,12 +27,12 @@ if (localStorage.chosenDate) {
     localStorage.chosenDate = chosenDate;
 }
 
-
 //movies:
 var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
 
 //Remember that we can change the year/page with user input or onclick events, ie: $("#seemore").on("click", function(page++));
 // var year = $("#year-addon");
+
 
 var year = chosenDate.getFullYear();
 var page = 1;
@@ -56,7 +56,7 @@ var result = response.results;
 
 //Loop through the results, isolate most popular/appropriate movies, establish variables to be able to refer to specific results later
   for (var i = 0; i < result.length; i++) {
-          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 8 && result[i].vote_average >= 7) {
+          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 6 && result[i].vote_average >= 6) {
             var imgDiv = $("#imgDiv");
             var title = result[i].original_title;
             var plot = result[i].overview;
@@ -159,8 +159,15 @@ var filteredNews = [];
         for (var i = 0; i < news.length; i++) {
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
-            var newsLink = news[i].web_url;
-            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink  + '</div>')
+            var article = news[i].web_url;
+            var newsLink = ('"<a href="' + article + '">"' + article + '"</a>"');
+
+  //           var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4><a href=" + newsLink + ">" + newsLink + "</a><hr>");
+  //           $("#newsDiv").append(newsDisplay);
+  //         };
+  // }
+
+            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + '<hr></div>');
             html.append(newsDisplay);
         }
         $('#newsDiv').html(html);
@@ -169,10 +176,7 @@ var filteredNews = [];
   })
 
 
-
 })
-
-//<a href=>" + newsLink + "</a><hr>"
 
 var booksTemplate = ""
 
@@ -196,6 +200,8 @@ for (var i = 0; i < 4; i++) {
   var title = currentDetail.title;
   var description = currentDetail.description;
   var author = currentDetail.author;
+  var amURL= bookDetails[i].amazon_product_url;
+  console.log(amURL);
   booksTemplate += "<h3>" + title + "</h3><h4>" + description + "</h4><h4>" + author + "</h4>";
   // booksTemplate += `<h3>${title}</h3><h4>${description}</h4><h4>${author}</h4>`
 }
