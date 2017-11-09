@@ -11,7 +11,22 @@ $( document ).ready(function() {
         $('#youtube-button').on("click", function(){
           console.log("Youtube is working")
         });
+        $('#datefield').on('change', function() {
+            chosenDate = new Date($('#datefield').val() + " MST");
+            localStorage.chosenDate = chosenDate;
+        })
     });
+
+var chosenDate;
+
+if (localStorage.chosenDate) {
+    chosenDate = new Date(localStorage.chosenDate);
+    $('#datefield').val(formatDate(chosenDate));
+} else {
+    chosenDate = new Date("06/03/1981");
+    localStorage.chosenDate = chosenDate;
+}
+
 
 //movies:
 var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
@@ -19,7 +34,7 @@ var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
 //Remember that we can change the year/page with user input or onclick events, ie: $("#seemore").on("click", function(page++));
 // var year = $("#year-addon");
 
-var year = 2015;
+var year = chosenDate.getFullYear();
 var page = 1;
 var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=" + page + "&language=en-US&api_key=" + imdbKey;
 
@@ -65,7 +80,7 @@ var result = response.results;
 //tv shows
 //imdbKey = f8e63df97dfc2a7095345babf9d3fe54
 
-var tvYear = 2010;
+var tvYear = chosenDate.getFullYear();
 var tvPage = 1;
 var tvURL = "https://api.themoviedb.org/3/discover/tv?api_key=" + imdbKey + "&language=en-US&sort_by=popularity.desc&first_air_date_year=" + tvYear + "&page=" + tvPage + "&timezone=America%2FNew_York&include_null_first_air_dates=false";
 
@@ -106,8 +121,8 @@ $.ajax(settings).done(function (response) {
 
 //news
 var nytKey = "1918eacf59e1438aa675c6786c3fcfd2";
-var newsYear = 2010;
-var newsMonth = 7;
+var newsYear = chosenDate.getFullYear();
+var newsMonth = chosenDate.getMonth() + 1;
 
 var newsURL = "https://api.nytimes.com/svc/archive/v1/"+ newsYear +"/"+ newsMonth +".json?api-key=" + nytKey;
 
@@ -172,4 +187,17 @@ $("#booksDiv").append(booksTemplate);
 
 
 });
+
+// Taken from https://stackoverflow.com/questions/23593052/format-javascript-date-to-yyyy-mm-dd
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
