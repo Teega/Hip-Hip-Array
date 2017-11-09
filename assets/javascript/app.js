@@ -133,19 +133,42 @@ $.ajax({
   console.log(result, "This is our news archive");
 
 var news = result.response.docs;
+var filteredNews = [];
 
   for (var i = 0; i < news.length; i++) {
   //include only US news articles from the News section, not Op-Ed or local or whatever and only from the front page
           if (news[i].news_desk == "National" && news[i].section_name == "U.S." && news[i].print_page == "1") {
-            var newsDiv = $("#newsDiv");
+
+            filteredNews.push(news[i]);
+            // var newsDiv = $("#newsDiv > table > tbody");
+            // var headline = news[i].headline.main;
+            // var summ = news[i].snippet;
+            // var newsLink = news[i].web_url;
+            // // console.log(newsLink);
+            // // var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + "<hr>");
+            // var newsDisplay = ('<tr><td><div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink  + '</div></td></tr>')
+            // $(newsDiv).append(newsDisplay);
+            // newsCount++;  // Since we are filtering the news, we need a count of what will get displayed
+          };
+  } 
+
+  $('#news-pagination').pagination({
+    dataSource: filteredNews,
+    callback: function(news, pagination) {
+        var html = $("<div></div>");
+        for (var i = 0; i < news.length; i++) {
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
             var newsLink = news[i].web_url;
-            console.log(newsLink);
-            var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + "<hr>");
-            $("#newsDiv").append(newsDisplay);
-          };
-  }
+            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink  + '</div>')
+            html.append(newsDisplay);
+        }
+        $('#newsDiv').html(html);
+        $('#news-pagination').find("ul").addClass("pagination");
+    }
+  })
+
+
 
 })
 
