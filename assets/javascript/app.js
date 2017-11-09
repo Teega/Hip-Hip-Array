@@ -134,17 +134,25 @@ var news = result.response.docs;
 
 })
 
-//<a href=>" + newsLink + "</a><hr>"
+//Global Variables for the NYT Book API 
+// ***************************************************************************
 
-var booksTemplate = ""
+//This variable holds the string that is created in the API for loop (below)
+var booksTemplate = "";
+//This variable passes the "published-date" parameter to the API URL 
+var bookDate = "2014-09-18";
 
-// NYT Book API
+// NYT Book API URL
+// ****************************************************************************
 var url = "https://api.nytimes.com/svc/books/v3/lists//.json";
 url += '?' + $.param({
   'api-key': "b64791b04000459ab16801c74f5de9cc",
   'list-name': "hardcover-fiction",
-  'published-date': "2014-09-18"
+  'published-date': bookDate
 });
+
+//NYT API Call
+//***************************************************************************** 
 $.ajax({
   url: url,
   method: 'GET',
@@ -153,12 +161,13 @@ $.ajax({
 
 var bookDetails = data.results
 //
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < 9; i++) {
   var currentDetail = bookDetails[i].book_details[0];
   var title = currentDetail.title;
   var description = currentDetail.description;
   var author = currentDetail.author;
-  booksTemplate += "<h3>" + title + "</h3><h4>" + description + "</h4><h4>" + author + "</h4>";
+  var amazon = bookDetails[i].amazon_product_url;
+  booksTemplate += "<h3><strong>" + title + "</strong></h3>" + "<h5><i>" + author + "</i></h5>" + "<h4>" + description + "</h4>" + "<br><h6>" + amazon + "</h6><hr>";
   // booksTemplate += `<h3>${title}</h3><h4>${description}</h4><h4>${author}</h4>`
 }
 
