@@ -56,7 +56,7 @@ var result = response.results;
 
 //Loop through the results, isolate most popular/appropriate movies, establish variables to be able to refer to specific results later
   for (var i = 0; i < result.length; i++) {
-          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 8 && result[i].vote_average >= 7) {
+          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 6 && result[i].vote_average >= 6) {
             var imgDiv = $("#imgDiv");
             var title = result[i].original_title;
             var plot = result[i].overview;
@@ -159,14 +159,15 @@ var filteredNews = [];
         for (var i = 0; i < news.length; i++) {
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
-            var newsLink = news[i].web_url;
+            var article = news[i].web_url;
+            var newsLink = ('"<a href="' + article + '">"' + article + '"</a>"');
 
   //           var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4><a href=" + newsLink + ">" + newsLink + "</a><hr>");
   //           $("#newsDiv").append(newsDisplay);
   //         };
   // }
 
-            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink  + '</div>')
+            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + '<hr></div>');
             html.append(newsDisplay);
         }
         $('#newsDiv').html(html);
