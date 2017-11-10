@@ -1,9 +1,12 @@
 body {
-  background-color: #989DAC;
+  background: url('../images/black.jpg')
 }
 
+#logo {
+  font-size: 100px;
+}
 #jumbo {
-  background: url('../images/roman_clock.png') no-repeat center center;
+  background: url('../images/clock.jpg') no-repeat center center;
   background-color: #505870;
   color: white;
   text-shadow: #000 0px 2px 25px;
@@ -12,6 +15,8 @@ body {
   margin-top: 0;
   top: 0;
   width: 100%
+  display: block;
+  box-shadow: #FFF 0px 1px 5px;
 }
 
 .calendar {
@@ -25,14 +30,15 @@ body {
 }
 
 #buttons {
-  background-color: #505870;
+  background-color: #494949;
   color: white;
   width: 100px;
   height: 28px;
+  border-radius: 25px;
 }
 
 .input-group-addon {
-  background-color: #505870;
+  background-color: #494949;
   color: white;
 }
 
@@ -51,14 +57,15 @@ body {
 .panels {
   height: 40px;
   border-radius: 2px;
-  background-color: #505870;
+  background: url('../images/Brushed.png');
   color: white;
   text-shadow: #000 0px 2px;
   text-align: left;
   padding: 10px;
   font-family: 'Anton', sans-serif;
   position: relative;
-  box-shadow: #000 0px 2px;
+  box-shadow: #000 2px 2px 5px;
+  border-radius: 25px;
 }
 
 .panels:hover {
@@ -71,13 +78,14 @@ footer {
   bottom: 0;
   text-align: center;
   font-family: 'Anton', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   padding: 15px;
-  background-color: #505870;
+  background-color: #494949;
   color: white;
   height: 50px;
   width: 100%;
   text-shadow: #000 0px 2px;
+  box-shadow: #FFF 0px -1px 3px;
 }
 
 a:link {
@@ -99,3 +107,10 @@ a:visited {
   margin-bottom: auto;
 }
 
+#round {
+  border-radius: 25px;
+}
+
+.footfix{
+  margin-bottom: 100px;
+}
