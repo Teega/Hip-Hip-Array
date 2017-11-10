@@ -143,9 +143,9 @@ var filteredNews = [];
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
             var article = news[i].web_url;
-            var newsLink = ("<a href=" + article + ">" + article + "</a>");
+            var newsLink = ("<a href=" + article + ">" + "Read full article at New York Times" + "</a>");
 
-            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + "<hr>" + '</div>');
+            var newsDisplay = ('<div class="news-article">' + "<h3><strong>" + headline + "</strong></h3><h4>" + summ + "</h4>" + newsLink + "<hr>" + '</div>');
             html.append(newsDisplay);
         }
         $('#newsDiv').html(html);
@@ -236,6 +236,6 @@ function formatDate(date) {
 
     return [year, month, day].join('-');
 
-  };
-})
+    };
+
 
