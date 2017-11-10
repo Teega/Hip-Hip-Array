@@ -1,21 +1,4 @@
 $( document ).ready(function() {
-        $('#news-button').on("click", function(){
-          console.log("News is working")
-        });
-        $('#movies-button').on("click", function(){
-          console.log("Movies is working")
-        });
-        $('#music-button').on("click", function(){
-          console.log("Music is working")
-        });
-        $('#youtube-button').on("click", function(){
-          console.log("Youtube is working")
-        });
-        $('#datefield').on('change', function() {
-            chosenDate = new Date($('#datefield').val() + " MST");
-            localStorage.chosenDate = chosenDate;
-        })
-    });
 
 var chosenDate;
 
@@ -26,7 +9,6 @@ if (localStorage.chosenDate) {
     chosenDate = new Date("06/03/1981");
     localStorage.chosenDate = chosenDate;
 }
-
 
 
 //movies:
@@ -57,7 +39,7 @@ var result = response.results;
 
 //Loop through the results, isolate most popular/appropriate movies, establish variables to be able to refer to specific results later
   for (var i = 0; i < result.length; i++) {
-          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 8 && result[i].vote_average >= 7) {
+          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 5 && result[i].vote_average >= 5) {
             var imgDiv = $("#imgDiv");
             var title = result[i].original_title;
             var plot = result[i].overview;
@@ -138,7 +120,7 @@ var filteredNews = [];
 
   for (var i = 0; i < news.length; i++) {
   //include only US news articles from the News section, not Op-Ed or local or whatever and only from the front page
-          if (news[i].news_desk == "National" && news[i].section_name == "U.S." && news[i].print_page == "1") {
+          if (news[i].news_desk == "National" || news[i].section_name == "U.S." && news[i].print_page == "1") {
 
             filteredNews.push(news[i]);
             // var newsDiv = $("#newsDiv > table > tbody");
@@ -160,8 +142,10 @@ var filteredNews = [];
         for (var i = 0; i < news.length; i++) {
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
-            var newsLink = news[i].web_url;
-            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink  + '</div>')
+            var article = news[i].web_url;
+            var newsLink = ("<a href=" + article + ">" + article + "</a>");
+
+            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + "<hr>" + '</div>');
             html.append(newsDisplay);
         }
         $('#newsDiv').html(html);
@@ -170,8 +154,8 @@ var filteredNews = [];
   })
 
 
-
 })
+
 
 //Global Variables for the NYT Book API 
 // ***************************************************************************
@@ -251,5 +235,7 @@ function formatDate(date) {
 
     return [year, month, day].join('-');
 
-}
+  };
+})
 
+//var libapi = "api.bookshare.org/book/search/since/" + date +
