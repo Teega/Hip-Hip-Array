@@ -1,21 +1,4 @@
 $( document ).ready(function() {
-        $('#news-button').on("click", function(){
-          console.log("News is working")
-        });
-        $('#movies-button').on("click", function(){
-          console.log("Movies is working")
-        });
-        $('#music-button').on("click", function(){
-          console.log("Music is working")
-        });
-        $('#youtube-button').on("click", function(){
-          console.log("Youtube is working")
-        });
-        $('#datefield').on('change', function() {
-            chosenDate = new Date($('#datefield').val() + " MST");
-            localStorage.chosenDate = chosenDate;
-        })
-    });
 
 var chosenDate;
 
@@ -27,17 +10,12 @@ if (localStorage.chosenDate) {
     localStorage.chosenDate = chosenDate;
 }
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> f4172e8323860546b8a6ec423af78e86814c8c32
 //movies:
 var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
 
 //Remember that we can change the year/page with user input or onclick events, ie: $("#seemore").on("click", function(page++));
 // var year = $("#year-addon");
-
 
 var year = chosenDate.getFullYear();
 var page = 1;
@@ -61,7 +39,7 @@ var result = response.results;
 
 //Loop through the results, isolate most popular/appropriate movies, establish variables to be able to refer to specific results later
   for (var i = 0; i < result.length; i++) {
-          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 6 && result[i].vote_average >= 6) {
+          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 5 && result[i].vote_average >= 5) {
             var imgDiv = $("#imgDiv");
             var title = result[i].original_title;
             var plot = result[i].overview;
@@ -142,7 +120,7 @@ var filteredNews = [];
 
   for (var i = 0; i < news.length; i++) {
   //include only US news articles from the News section, not Op-Ed or local or whatever and only from the front page
-          if (news[i].news_desk == "National" && news[i].section_name == "U.S." && news[i].print_page == "1") {
+          if (news[i].news_desk == "National" || news[i].section_name == "U.S." && news[i].print_page == "1") {
 
             filteredNews.push(news[i]);
             // var newsDiv = $("#newsDiv > table > tbody");
@@ -165,14 +143,9 @@ var filteredNews = [];
             var headline = news[i].headline.main;
             var summ = news[i].snippet;
             var article = news[i].web_url;
-            var newsLink = ('"<a href="' + article + '">"' + article + '"</a>"');
+            var newsLink = ("<a href=" + article + ">" + article + "</a>");
 
-  //           var newsDisplay = ("<h3>" + headline + "</h3><h4>" + summ + "</h4><a href=" + newsLink + ">" + newsLink + "</a><hr>");
-  //           $("#newsDiv").append(newsDisplay);
-  //         };
-  // }
-
-            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + '<hr></div>');
+            var newsDisplay = ('<div class="news-article">' + "<h3>" + headline + "</h3><h4>" + summ + "</h4>" + newsLink + "<hr>" + '</div>');
             html.append(newsDisplay);
         }
         $('#newsDiv').html(html);
@@ -262,5 +235,7 @@ function formatDate(date) {
 
     return [year, month, day].join('-');
 
-}
+  };
+})
 
+//var libapi = "api.bookshare.org/book/search/since/" + date +
