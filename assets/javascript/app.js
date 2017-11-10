@@ -23,7 +23,7 @@ var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
 // var year = $("#year-addon");
 
 var year = chosenDate.getFullYear();
-var page = 1;
+var page = 2;
 var movieURL = "https://api.themoviedb.org//3/discover/movie?primary_release_year="+ year +"&sort_by=vote_average.descpage=" + page + "&language=en-US&api_key=" + imdbKey;
 
 //This bit came from IMDB, don't mess with it, we need it to pull data correctly
@@ -44,7 +44,7 @@ var result = response.results;
 
 //Loop through the results, isolate most popular/appropriate movies, establish variables to be able to refer to specific results later
   for (var i = 0; i < result.length; i++) {
-          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 5 && result[i].vote_average >= 5) {
+          if (result[i].genre_ids[0] !== 99 && result[i].original_language == "en" && result[i].popularity >= 4 && result[i].vote_average >= 4) {
             var imgDiv = $("#imgDiv");
             var title = result[i].original_title;
             var plot = result[i].overview;
@@ -80,7 +80,7 @@ var settings = {
   "headers": {},
   "data": "{}"
 }
- 
+
 $.ajax(settings).done(function (response) {
   console.log(response, "These are TV Shows");
 
@@ -138,7 +138,7 @@ var filteredNews = [];
             // $(newsDiv).append(newsDisplay);
             // newsCount++;  // Since we are filtering the news, we need a count of what will get displayed
           };
-  } 
+  }
 
   $('#news-pagination').pagination({
     dataSource: filteredNews,
@@ -162,13 +162,13 @@ var filteredNews = [];
 })
 
 
-//Global Variables for the NYT Book API 
+//Global Variables for the NYT Book API
 // ***************************************************************************
 
 //This variable holds the string that is created in the API for loop (below)
 var booksTemplate = "";
 
-//These variables change the datepicker intergers into strings 
+//These variables change the datepicker intergers into strings
 var bookYear = (chosenDate.getFullYear()).toString();
 var bookMonth = (chosenDate.getMonth() + 1).toString();
 var bookDay = (chosenDate.getDate()).toString();
@@ -185,7 +185,7 @@ var day = ("0" + bookDay).slice(-2);
 console.log(day);
 
 
-//This variable creates the date format to be passed to the NYT Book API 
+//This variable creates the date format to be passed to the NYT Book API
 var bookDate = newsYear + "-" + month + "-" + day;
 console.log(bookDate);
 
@@ -201,7 +201,7 @@ url += '?' + $.param({
 });
 
 //NYT API Call
-//***************************************************************************** 
+//*****************************************************************************
 $.ajax({
   url: url,
   method: 'GET',
@@ -209,7 +209,7 @@ $.ajax({
   console.log(data, "these are books");
 
 var bookDetails = data.results;
-// Loop to string together the API results. It limits results to 10. 
+// Loop to string together the API results. It limits results to 10.
 for (var i = 0; i < 9; i++) {
   var currentDetail = bookDetails[i].book_details[0];
   console.log(currentDetail);
