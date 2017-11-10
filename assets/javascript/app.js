@@ -211,8 +211,9 @@ for (var i = 0; i < 9; i++) {
   var title = currentDetail.title;
   var description = currentDetail.description;
   var author = currentDetail.author;
-  var amazon = bookDetails[i].amazon_product_url;
-  booksTemplate += "<h3><strong>" + title + "</strong></h3>" + "<h5><i>" + author + "</i></h5>" + "<h4>" + description + "</h4>" + "<br><h6>" + amazon + "</h6><hr>";
+  var amazonLink = bookDetails[i].amazon_product_url;
+  var amazonClick = ("<a href=" + amazonLink + ">" + "Buy Amazon" + "</a>");
+  booksTemplate += "<h3><strong>" + title + "</strong></h3>" + "<h5><i>" + author + "</i></h5>" + "<h4>" + description + "</h4>" + "<br>" + amazonClick + "<hr>";
 
 }
 
@@ -237,4 +238,4 @@ function formatDate(date) {
 
     };
 
-  })
+
