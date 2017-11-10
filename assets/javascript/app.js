@@ -1,5 +1,10 @@
 $( document ).ready(function() {
 
+    $('#datefield').on('change', function() {
+      chosenDate = new Date($('#datefield').val() + " MST");
+      localStorage.chosenDate = chosenDate;
+      })
+
 var chosenDate;
 
 if (localStorage.chosenDate) {
@@ -238,4 +243,4 @@ function formatDate(date) {
 
     };
 
-
+})
