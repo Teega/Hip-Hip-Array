@@ -2,23 +2,22 @@ body {
   background: url('../images/black.jpg')
 }
 
-#logo {
-  font-size: 100px;
-}
 #jumbo {
   background: url('../images/clock.jpg') no-repeat center center;
-  background-color: #505870;
   color: white;
-  text-shadow: #000 0px 2px 25px;
+  font-size: 100px;
+  text-shadow: 0px 1px 25px #000;
   text-align: center;
+  vertical-align: middle;
   font-family: 'Anton', sans-serif;
-  margin-top: 0;
-  top: 0;
+  padding-top: 20px;
+  height: 200px;
   width: 100%
   display: block;
   box-shadow: #FFF 0px 1px 5px;
 }
 
+/*stylized the calendar input to match thematically*/
 .calendar {
   position: relative;
   display: block;
@@ -29,19 +28,39 @@ body {
   text-shadow: #000 0px 2px;
 }
 
+/*using input[type="date"] allows for modifying the html5 date picker using webkit */
+input[type="date"]::-webkit-clear-button {
+    /*font-size: 18px;
+    height: 30px;
+    position: relative;*/
+    display: none;
+
+  }
+ input[type="date"]::-webkit-inner-spin-button {
+    /*height: 28px;*/
+    display: none;
+  }
+
+  /*input[type="date"]::-webkit-calendar-picker-indicator{
+    font-size: 20px;
+   }*/
+
+/*style settings for the submit button*/
 #buttons {
   background-color: #494949;
   color: white;
   width: 100px;
   height: 28px;
   border-radius: 25px;
+  border-width:1px;
+  border-style:outset;
+  box-shadow: 0px 2px 5px #000;
 }
 
-.input-group-addon {
-  background-color: #494949;
-  color: white;
+#buttons:hover {
+  box-shadow: inset 0px 0px 10px 1px #FFF;
 }
-
+/*style for calendar*/
 #datefield {
   color: black;
 }
@@ -54,6 +73,7 @@ body {
   font-family: 'Anton', sans-serif;
 }
 
+/*Style for accordian panel headers*/
 .panels {
   height: 40px;
   border-radius: 2px;
@@ -61,15 +81,16 @@ body {
   color: white;
   text-shadow: #000 0px 2px;
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   font-family: 'Anton', sans-serif;
   position: relative;
-  box-shadow: #000 2px 2px 5px;
+  box-shadow: #000 0px 2px 5px;
   border-radius: 25px;
 }
 
+/*innerglow effect when hovering over an accordian panel header*/
 .panels:hover {
-  background-color: #b3b6c3;
+  box-shadow: inset 0px 0px 15px 3px #FFF;
 }
 
 footer {
@@ -88,29 +109,57 @@ footer {
   box-shadow: #FFF 0px -1px 3px;
 }
 
+/*styling for hyperlinks in news and books results*/
 a:link {
-  color: inherit;
-  background-color: transparent;
+  background-color: #494949;
   text-decoration: none;
+  color: white;
+  box-shadow: 0px 2px 5px #000;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 25px;
+  font-family: 'Anton', sans-serif;
 }
 
 a:visited {
-  color: inherit;
+  color: white;
   background-color: transparent;
   text-decoration: none;
 }
 
+a:hover {
+box-shadow: inset 0px 0px 5px 1px #FFF;
+}
+/*style for api credits in the footer*/
 .credits {
-  height: 45px;
   width: auto;
   float: right;
   margin-bottom: auto;
 }
 
+/*overwrite anchor styling and apply only to the credits class*/
+.credits a {
+  box-shadow: none;
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/*rounds panel body to match panel headers*/
 #round {
   border-radius: 25px;
 }
 
+/*used to stop the accordion from extending below the footer*/
 .footfix{
   margin-bottom: 100px;
+}
+
+/*overwrite anchor styling and apply only to the pagination elements*/
+.pagination a{
+  box-shadow: none;
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
 }
