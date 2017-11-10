@@ -28,6 +28,7 @@ if (localStorage.chosenDate) {
 }
 
 
+
 //movies:
 var imdbKey = "f8e63df97dfc2a7095345babf9d3fe54";
 
@@ -177,8 +178,29 @@ var filteredNews = [];
 
 //This variable holds the string that is created in the API for loop (below)
 var booksTemplate = "";
-//This variable passes the "published-date" parameter to the API URL 
-var bookDate = "2014-09-18";
+
+//These variables change the datepicker intergers into strings 
+var bookYear = (chosenDate.getFullYear()).toString();
+var bookMonth = (chosenDate.getMonth() + 1).toString();
+var bookDay = (chosenDate.getDate()).toString();
+
+console.log(bookYear);
+console.log(bookMonth);
+console.log(bookDay);
+
+//These variables prepend "0" to all months. It then slices off the "0" if the date month is grater than 9 (ex. 010 slice---> 10)
+var month = ("0" + bookMonth).slice(-2);
+console.log(month);
+
+var day = ("0" + bookDay).slice(-2);
+console.log(day);
+
+
+//This variable creates the date format to be passed to the NYT Book API 
+var bookDate = newsYear + "-" + month + "-" + day;
+console.log(bookDate);
+
+
 
 // NYT Book API URL
 // ****************************************************************************
@@ -197,26 +219,23 @@ $.ajax({
 }).done(function(data) {
   console.log(data, "these are books");
 
-var bookDetails = data.results
-//
+var bookDetails = data.results;
+// Loop to string together the API results. It limits results to 10. 
 for (var i = 0; i < 9; i++) {
   var currentDetail = bookDetails[i].book_details[0];
+  console.log(currentDetail);
   var title = currentDetail.title;
   var description = currentDetail.description;
   var author = currentDetail.author;
   var amazon = bookDetails[i].amazon_product_url;
   booksTemplate += "<h3><strong>" + title + "</strong></h3>" + "<h5><i>" + author + "</i></h5>" + "<h4>" + description + "</h4>" + "<br><h6>" + amazon + "</h6><hr>";
-  // booksTemplate += `<h3>${title}</h3><h4>${description}</h4><h4>${author}</h4>`
+
 }
 
 $("#booksDiv").append(booksTemplate);
 
 }).fail(function(err) {
   throw err;
-
-
-
-
 
 });
 
@@ -231,5 +250,6 @@ function formatDate(date) {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
+
 }
 
